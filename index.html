@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="styles.css"/>
+        <title>SAGE Therapy</title>
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+        <div class="head">
+             <img src="./assets/logo.jpg" style="float: left; width: 150px; height: 150px;"/>
+             <h1>sage therapy</h1>
+             <p class="slogan">healing begins here</p>
+        </div> 
+        <div class="goal">
+             <p class="ourgoal">Offering compassionate online counselling therapy to support your journey.</p>
+             <button CLASS="session"><a href="./booksession.html">Book a Session Now</a></button>
+        </div>
+        <hr/>
+        <div class="ratings">
+                  <h2 class="Testimonials">Reviews:</h2>
+                  <P class="Testimonials stars">General rating: ⭐⭐⭐⭐</P>
+             <div class="testimonial-slider">
+               <blockquote class="testimonial active">
+                        <p>"Professional, compassionate, and effective. I am grateful for the positive changes in my life."</p>
+                        <p>Rating:⭐⭐⭐⭐⭐</p>
+                        <footer>- Jed E.</footer>
+               </blockquote>
+                     <blockquote class="testimonial">
+                    <p>"SAGE Therapy has truly changed my life. The support and understanding I received made all the difference."</p>
+                     <p>Rating:⭐⭐⭐⭐⭐</p>
+                    <footer>- Temidayo A.</footer>
+                </blockquote>
+                <blockquote class="testimonial">
+                    <p>"I felt heard and valued from the very first session. Highly recommend their caring approach."</p>
+                    <p>Rating:⭐⭐⭐⭐</p>
+                    <footer>- David D.</footer>
+                </blockquote>
+                <blockquote class="testimonial active">
+                        <p>"lost and completely hopeless, they took the time to study me, figure me out and understood me the way i never understood myself. I am grateful for the positive changes in my life."</p>
+                        <p>Rating:⭐⭐⭐⭐⭐</p>
+                        <footer>- Waris O.</footer>
+                </blockquote>
+                <blockquote class="testimonial active">
+                        <p>"Professional and effective, definetely worth every penny spent, highly recommended".</p>
+                        <p>Rating:⭐⭐⭐⭐⭐</p>
+                        <footer>- Victoria O.</footer>
+                </blockquote>    
+                <blockquote class="testimonial active">
+                        <p>"lost and completely hopeless, they took the time to study me, figure me out and understood me the way i never understood myself. I am grateful for the positive changes in my life."</p>
+                        <p>Rating:⭐⭐⭐⭐⭐</p>
+                        <footer>- Dickson O.</footer>
+                </blockquote>
+                    <button class="prev">Prev</button>
+                    <button class="next">Next</button>
+                </div>
+        </div>
+                <hr/>
+        <div class="contact">
+             <a href="./contact.html">Contact us @</a>
+             <a href="./about.html">About us</a>
+             <a href="./services.html">Our services</a>
+             <a href="./resources.html">resources</a>
+        </div><hr/>
+         <footer>
+            <div class="footer-content">
+                <ul class="footer-links">
+                    <li><a href="./T&C.html">Terms of Service</a></li>
+                    <li>
+                        <form class="newsletter-signup" action="#" method="post">
+                            <label for="newsletter-email">Sign up for updates:</label>
+                            <input type="email" id="newsletter-email" name="email" placeholder="Your email" required>
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </li>
+                    <li>
+                        <a href="./accessibility.html">Accessibility Statement</a>
+                    </li>
+                    <li style="margin-bottom: 30px;">
+                        Language:
+                        <select name="language" aria-label="Select language">
+                            <option value="en">English</option>
+                            <option value="yo">Yoruba</option>
+                            <option value="ig">Igbo</option>
+                            <option value="ha">Hausa</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+         </footer>
+
+
+
+
+
+
+                <script>
+                    const testimonials = document.querySelectorAll('.testimonial-slider .testimonial');
+                    let current = 0;
+
+                    function showTestimonial(index) {
+                        testimonials.forEach((el, i) => {
+                            el.classList.toggle('active', i === index);
+                            el.style.display = i === index ? 'block' : 'none';
+                        });
+                    }
+
+                    document.querySelector('.testimonial-slider .prev').onclick = function() {
+                        current = (current - 1 + testimonials.length) % testimonials.length;
+                        showTestimonial(current);
+                    };
+                    document.querySelector('.testimonial-slider .next').onclick = function() {
+                        current = (current + 1) % testimonials.length;
+                        showTestimonial(current);
+                    };
+
+                    showTestimonial(current);
+                </script>
+                <style>
+                    .testimonial-slider {
+                        position: relative;
+                        max-width: 500px;
+                        margin: 0 auto;
+                        text-align: center;
+                    }
+                    .testimonial-slider .testimonial {
+                        display: none;
+                    }
+                    .testimonial-slider .testimonial.active {
+                        display: block;
+                    }
+                    .testimonial-slider button {
+                        margin: 19px 25px;
+                        padding: 5px 15px;
+                        cursor: pointer;
+                    }
+                </style>
+        </div>
+    </body>
+</html>

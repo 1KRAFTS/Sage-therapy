@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="styles.css"/>
+        <title>book session</title>
+        <meta name="viewport" content="width=device-width">
+        <style>
+            body{
+                background-color: skyblue;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="booking-container">
+            <h1 style="margin-bottom: 70px;">Book a Session</h1>
+            <form id="booking-form" style="font-size: 1.02rem; display: flex; flex-direction: column; gap:30px">
+                <label for="therapist">Select Therapist:</label>
+                <select id="therapist" name="therapist" required>
+                    <option value="">Choose...</option>
+                    <option value="therapist2">Sage Therapy </option>
+                </select>
+
+                <label for="timeslot">Select Time Slot:</label>
+                <input type="datetime-local" id="timeslot" name="timeslot" required>
+
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="payment">Payment:</label>
+                <button type="button" id="pay-btn">Pay Now</button>
+
+                <button type="submit">Book Session</button>
+            </form>
+            <p>
+                <a href="cancellation-policy.html" target="_blank">Read our cancellation policy</a>
+            </p>
+        </div>
+
+        <div class="chatroom-container" id="chatroom">
+            <h2>Live Chat with Admin</h2>
+            <div id="chat-messages" class="chat-messages"></div>
+            <form id="chat-form">
+                <input type="text" id="chat-input" placeholder="Type your message..." autocomplete="off" required>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+
+        <script>
+        // Dummy payment gateway simulation
+        document.getElementById('pay-btn').onclick = function() {
+            alert('Redirecting to payment gateway...');
+        };
+
+        // Booking form submission
+        document.getElementById('booking-form').onsubmit = function(e) {
+            e.preventDefault();
+            // Simulate sending booking info to backend and triggering admin notification
+            appendMessage('You', 'I want to book a session.');
+            // Simulate confirmation email
+            alert('Booking submitted! Confirmation email sent.{NOTE}If you do not get a mail, kindly visit our contact page and chat directly with one of our specialist');
+        };
+
+        // Simple chatroom logic (frontend only demo)
+        const chatMessages = document.getElementById('chat-messages');
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+
+        function appendMessage(sender, message) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'chat-message';
+            msgDiv.innerHTML = `<strong>${sender}:</strong> ${message}`;
+            chatMessages.appendChild(msgDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        chatForm.onsubmit = function(e) {
+            e.preventDefault();
+            const msg = chatInput.value.trim();
+            if (msg) {
+                appendMessage('You', msg);
+                // Simulate admin response
+                setTimeout(() => appendMessage('Admin', 'Thank you for your message, we are currently experiencing issue with the live chat feature,be patient, We will resolve this as soon as possible.'), 1000);
+                chatInput.value = '';
+            }
+        };
+        </script>
+    </body>
+</html>
